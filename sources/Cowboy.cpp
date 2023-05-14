@@ -1,7 +1,7 @@
 #include "Cowboy.hpp"
 
 using namespace std;
-
+// ori
 namespace ariel
 {
     void Cowboy::shoot(Character *target)
