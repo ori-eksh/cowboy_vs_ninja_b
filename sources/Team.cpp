@@ -53,6 +53,7 @@ namespace ariel
             if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
             {
                 victim = member;
+                min_victim = chief->distance(member);
             }
         }
 
@@ -96,7 +97,8 @@ namespace ariel
                     min_victim = 99999;
                     if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
                     {
-                        // victim = member;
+                        victim = member;
+                        min_victim = chief->distance(member);
                     }
                 }
             }

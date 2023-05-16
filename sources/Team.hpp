@@ -31,7 +31,8 @@ namespace ariel
         virtual void attack(Team *otherTeam);
         int stillAlive();
         virtual void print();
-
+        virtual Character *getChief() { return chief; }
+        virtual vector<Character *> getMembers() { return Members; }
         virtual ~Team()
         {
             for (auto *member : Members)
