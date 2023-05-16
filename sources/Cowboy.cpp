@@ -6,7 +6,17 @@ namespace ariel
 {
     void Cowboy::shoot(Character *target)
     {
-        if (target->isAlive() == true && this->isAlive() == true && amountOfBalls > 0)
+        if (target->isAlive() == false || this->isAlive() == false)
+        {
+            throw runtime_error("Dead characters cannot attack and characters cannot attack a dead enemy");
+        }
+
+        if (this == target)
+        {
+            throw runtime_error("No self harm");
+        }
+
+        if (amountOfBalls > 0)
         {
             target->hit(10);
             amountOfBalls -= 1;
@@ -25,6 +35,10 @@ namespace ariel
 
     void Cowboy::reload()
     {
+        if (this->isAlive() == false)
+        {
+            throw runtime_error("Dead cowboy can not reload");
+        }
         amountOfBalls = 6;
         return;
     }

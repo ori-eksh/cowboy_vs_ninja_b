@@ -4,7 +4,15 @@ namespace ariel
 {
     void Ninja::slash(Character *target)
     {
-        if (this->isAlive() == true && target->isAlive() == true && (this->getLocation().distance(target->getLocation())) <= 1)
+        if (target->isAlive() == false || this->isAlive() == false)
+        {
+            throw runtime_error("Dead characters cannot attack and characters cannot attack a dead enemy");
+        }
+        if (this == target)
+        {
+            throw runtime_error("No self harm");
+        }
+        if ((this->getLocation().distance(target->getLocation())) <= 1)
         {
             target->hit(40);
         }

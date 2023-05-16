@@ -23,7 +23,10 @@ namespace ariel
 
     void Team::attack(Team *otherTeam)
     {
-
+        if (otherTeam == nullptr)
+        {
+            throw invalid_argument("you cant sending nullptr to the attack() method");
+        }
         return;
     }
 

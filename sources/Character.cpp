@@ -22,6 +22,10 @@ namespace ariel
 
     void Character::hit(int num)
     {
+        if (num < 0)
+        {
+            throw invalid_argument("you cant Sending negative value to hit()git");
+        }
         hit_points = (hit_points - num);
         return;
     }
