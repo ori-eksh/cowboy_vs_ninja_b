@@ -27,7 +27,7 @@ namespace ariel
                 }
             }
         }
-
+        //
         double min_victim = 99999;
         Character *victim;
         for (auto member : otherTeam->getMembers()) // choos victim
