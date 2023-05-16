@@ -5,7 +5,7 @@ using namespace std;
 
 namespace ariel
 {
-    double Point::distance(Point point2)
+    double Point::distance(Point point2) const
     {
         double dx = x - point2.x;
         double dy = y - point2.y;

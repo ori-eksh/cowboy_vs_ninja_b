@@ -11,6 +11,5 @@ namespace ariel
     {
     public:
         OldNinja(string name, Point const &location) : Ninja(std::move(name), location, HUNDRED50, EIGHT) {}
-        // ~OldNinja() override {}
     };
 }

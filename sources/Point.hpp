@@ -35,14 +35,14 @@ namespace ariel
             return *this;
         }
 
-        double distance(Point point2);
+        double distance(Point point2) const;
 
         double getX() const { return x; }
         double getY() const { return y; }
 
         std::string print();
 
-        static Point moveTowards(const Point &from, Point &target, double distance)
+        static Point moveTowards(const Point &from, const Point &target, double distance)
         {
             double dist = target.distance(from);
 

@@ -1,5 +1,7 @@
 #pragma once
 #include "Character.hpp"
+#include "Point.hpp"
+
 using namespace std;
 
 namespace ariel

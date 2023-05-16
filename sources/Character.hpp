@@ -54,3 +54,4 @@ namespace ariel
         virtual ~Character() {}
     };
 }
+//
