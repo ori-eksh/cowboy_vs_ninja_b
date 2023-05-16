@@ -11,7 +11,10 @@ namespace ariel
         {
             return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 
     double Character::distance(Character *toCheckWith)

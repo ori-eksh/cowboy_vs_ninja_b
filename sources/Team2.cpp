@@ -12,34 +12,34 @@ namespace ariel
 
         if (otherTeam->stillAlive() <= 0 || stillAlive() <= 0) // if everyone in this team tead
         {
-            return;
+            throw runtime_error("");
         }
 
-        if (Character::this->getChief().isAlive() == false) // if the chief is dead
+        if (this->getChief()->isAlive() == false) // if the chief is dead
         {
             double min_dis = 99999;
-            for (auto member : Members)
+            for (auto member : getMembers())
             {
-                if (chief->distance(member) < min_dis && member->isAlive() == true)
+                if (this->getChief()->distance(member) < min_dis && member->isAlive() == true)
                 {
-                    chief = member;
-                    min_dis = chief->distance(member);
+                    this->setChief(member);
+                    min_dis = this->getChief()->distance(member);
                 }
             }
         }
 
         double min_victim = 99999;
         Character *victim;
-        for (auto member : otherTeam->Members) // choos victim
+        for (auto member : otherTeam->getMembers()) // choos victim
         {
-            if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
+            if ((this->getChief()->distance(member) < min_victim) && (member->isAlive() == true))
             {
                 victim = member;
-                min_victim = chief->distance(member);
+                min_victim = this->getChief()->distance(member);
             }
         }
 
-        for (auto member : Members) // the attack
+        for (auto member : getMembers()) // the attack
         {
             Cowboy *cowPtr = dynamic_cast<Cowboy *>(member); // its cowboy
 
@@ -74,13 +74,13 @@ namespace ariel
                 {
                     return;
                 }
-                for (auto member : otherTeam->Members) // choos new victim
+                for (auto member : otherTeam->getMembers()) // choos new victim
                 {
                     min_victim = 99999;
-                    if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
+                    if ((this->getChief()->distance(member) < min_victim) && (member->isAlive() == true))
                     {
                         victim = member;
-                        min_victim = chief->distance(member);
+                        min_victim = this->getChief()->distance(member);
                     }
                 }
             }
@@ -89,6 +89,10 @@ namespace ariel
 
     void Team2::print()
     {
+        for (auto member : this->getMembers())
+        {
+            member->print();
+        }
         return;
     }
 }

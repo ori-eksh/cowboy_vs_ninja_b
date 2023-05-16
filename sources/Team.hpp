@@ -32,6 +32,7 @@ namespace ariel
         int stillAlive();
         virtual void print();
         virtual Character *getChief() { return chief; }
+        virtual void setChief(Character *poinChief) { chief = poinChief; }
         virtual vector<Character *> getMembers() { return Members; }
         virtual ~Team()
         {

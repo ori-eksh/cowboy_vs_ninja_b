@@ -30,7 +30,7 @@ namespace ariel
 
         if (otherTeam->stillAlive() <= 0 || stillAlive() <= 0) // if everyone in this team tead
         {
-            return;
+            throw runtime_error("");
         }
 
         if (chief->isAlive() == false) // if the chief is dead
@@ -57,7 +57,7 @@ namespace ariel
             }
         }
 
-        for (auto member : Members) // the attack
+        for (auto member : Members) // the attack of cowboy
         {
             Cowboy *cowPtr = dynamic_cast<Cowboy *>(member); // its cowboy
 
@@ -73,6 +73,26 @@ namespace ariel
                 }
             }
 
+            if (victim->isAlive() == false)
+            {
+                if (otherTeam->stillAlive() == 0)
+                {
+                    return;
+                }
+                for (auto member : otherTeam->Members) // choos new victim
+                {
+                    min_victim = 99999;
+                    if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
+                    {
+                        victim = member;
+                        min_victim = chief->distance(member);
+                    }
+                }
+            }
+        }
+
+        for (auto member : Members) // the attack of ninja
+        {
             Ninja *Ninjaptr = dynamic_cast<Ninja *>(member); // its ninja
             if (Ninjaptr != nullptr && Ninjaptr->isAlive() == true)
             {
@@ -118,9 +138,23 @@ namespace ariel
 
     void Team::print()
     {
+
         for (auto member : Members)
         {
-            member->print();
+            Ninja *Ninjaptr = dynamic_cast<Ninja *>(member);
+            if (Ninjaptr != nullptr)
+            {
+                member->print();
+            }
+        }
+
+        for (auto member : Members)
+        {
+            Character *Charatptr = dynamic_cast<Character *>(member);
+            if (Charatptr != nullptr)
+            {
+                member->print();
+            }
         }
         return;
     }
