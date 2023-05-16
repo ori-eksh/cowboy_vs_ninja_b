@@ -70,17 +70,17 @@ namespace ariel
 
             if (victim->isAlive() == false)
             {
-                if (otherTeam->stillAlive() == 0)
+                if (otherTeam->stillAlive() == 0 || stillAlive() == 0)
                 {
                     return;
                 }
                 for (auto member : otherTeam->getMembers()) // choos new victim
                 {
-                    min_victim = 99999;
-                    if ((this->getChief()->distance(member) < min_victim) && (member->isAlive() == true))
+                    double min_victim9 = 99999;
+                    if ((this->getChief()->distance(member) < min_victim9) && (member->isAlive() == true))
                     {
                         victim = member;
-                        min_victim = this->getChief()->distance(member);
+                        min_victim9 = this->getChief()->distance(member);
                     }
                 }
             }

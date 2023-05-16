@@ -35,7 +35,7 @@ namespace ariel
 
         if (chief->isAlive() == false) // if the chief is dead
         {
-            double min_dis = 99999;
+            double min_dis = 999999;
             for (auto member : Members)
             {
                 if (chief->distance(member) < min_dis && member->isAlive() == true)
@@ -46,7 +46,7 @@ namespace ariel
             }
         }
 
-        double min_victim = 99999;
+        double min_victim = 999999;
         Character *victim;
         for (auto member : otherTeam->Members) // choos victim
         {
@@ -75,17 +75,17 @@ namespace ariel
 
             if (victim->isAlive() == false)
             {
-                if (otherTeam->stillAlive() == 0)
+                if (otherTeam->stillAlive() == 0 || stillAlive() == 0)
                 {
                     return;
                 }
                 for (auto member : otherTeam->Members) // choos new victim
                 {
-                    min_victim = 99999;
-                    if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
+                    double min_victim2 = 999999;
+                    if ((chief->distance(member) < min_victim2) && (member->isAlive() == true))
                     {
                         victim = member;
-                        min_victim = chief->distance(member);
+                        min_victim2 = chief->distance(member);
                     }
                 }
             }
@@ -108,17 +108,17 @@ namespace ariel
 
             if (victim->isAlive() == false)
             {
-                if (otherTeam->stillAlive() == 0)
+                if (otherTeam->stillAlive() == 0 || stillAlive() == 0)
                 {
                     return;
                 }
                 for (auto member : otherTeam->Members) // choos new victim
                 {
-                    min_victim = 99999;
-                    if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
+                    double min_victim3 = 999999;
+                    if ((chief->distance(member) < min_victim3) && (member->isAlive() == true))
                     {
                         victim = member;
-                        min_victim = chief->distance(member);
+                        min_victim3 = chief->distance(member);
                     }
                 }
             }
