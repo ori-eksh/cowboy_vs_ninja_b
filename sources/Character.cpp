@@ -7,32 +7,42 @@ namespace ariel
 
     bool Character::isAlive()
     {
+        if (hit_points > 0)
+        {
+            return true;
+        }
         return false;
     }
 
     double Character::distance(Character *toCheckWith)
     {
-        return 0.0;
+
+        return (location.distance(toCheckWith->getLocation()));
     }
 
     void Character::hit(int num)
     {
+        hit_points = (hit_points - num);
         return;
     }
 
     string Character::getName()
     {
-        return "ori";
+        return name;
     }
 
     Point Character::getLocation()
     {
-        return Point(0, 0);
+        return location;
     }
 
     int Character::getHitPoints()
     {
-        return 0;
+        return this->hit_points;
+    }
+    void Character::setHitPoints(int pointToSet)
+    {
+        this->hit_points = pointToSet;
     }
 
 }

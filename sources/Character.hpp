@@ -43,6 +43,8 @@ namespace ariel
         }
 
         int getHitPoints();
+        void setHitPoints(int);
+
         bool isAlive();
         double distance(Character *);
         void hit(int num);

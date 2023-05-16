@@ -20,7 +20,7 @@ namespace ariel
         Cowboy &operator=(Cowboy &&) = delete;
 
         void shoot(Character *target);
-        bool hasBullets();
+        bool hasboolets();
         void reload();
         int getAmountOfBalls();
         std::string print() override;

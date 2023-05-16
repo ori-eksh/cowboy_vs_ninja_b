@@ -9,7 +9,7 @@ namespace ariel
         return;
     }
 
-    bool Cowboy::hasBullets()
+    bool Cowboy::hasboolets()
     {
         return true;
     }

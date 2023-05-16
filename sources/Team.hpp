@@ -5,7 +5,6 @@
 #include "YoungNinja.hpp"
 #include "TrainedNinja.hpp"
 #include <sstream>
-
 #include <vector>
 namespace ariel
 {
