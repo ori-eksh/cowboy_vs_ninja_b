@@ -18,7 +18,7 @@ namespace ariel
     public:
         Team(Character *chief) : chief(chief)
         {
-            if (chief->getIfPlayed() == true)
+            if (chief->getIfPlayed())
             {
                 throw runtime_error("you cant Appointing the same captain to different teams");
             }
@@ -41,10 +41,11 @@ namespace ariel
                 delete member;
             }
             Members.clear();
+            chief = nullptr;
         }
         // Because we wrote Distractor We need to add:
         // Copy constructor, shift constructor, copy operator, shift operator
-        Team(const Team &other) : chief(other.chief)
+        Team(const Team &other) : participants(0), chief(other.chief)
         {
             for (auto *member : other.Members)
             {
@@ -72,7 +73,7 @@ namespace ariel
         }
 
         Team(Team &&other) noexcept
-            : chief(other.chief), Members(std::move(other.Members))
+            : participants(0), chief(other.chief), Members(std::move(other.Members))
         {
             other.chief = nullptr;
         }
@@ -94,5 +95,4 @@ namespace ariel
             return *this;
         }
     };
-
 };

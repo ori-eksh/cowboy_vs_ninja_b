@@ -14,8 +14,11 @@ namespace ariel
 
     public:
         Character(std::string name, const Point &location, int hit_points) : location(location), name(std::move(name)), hit_points(hit_points), played(false) {}
-        Character(const Character &other) : location(other.location), name(other.name), hit_points(other.hit_points) {}
-        Character(Character &&other) noexcept : location(std::move(other.location)), name(std::move(other.name)), hit_points(other.hit_points) {}
+        Character(const Character &other)
+            : location(other.location), name(other.name), hit_points(other.hit_points), played(false) {}
+
+        Character(Character &&other) noexcept
+            : location(std::move(other.location)), name(std::move(other.name)), hit_points(other.hit_points), played(false) {}
 
         Character &operator=(const Character &other)
         {
@@ -58,7 +61,7 @@ namespace ariel
             this->played = true;
         }
 
-        bool getIfPlayed()
+        bool getIfPlayed() const
         {
             return played;
         }

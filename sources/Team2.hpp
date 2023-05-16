@@ -11,7 +11,7 @@ namespace ariel
 
     public:
         Team2(Character *chief) : Team(chief) {}
-        void attack(Team *otherTeam);
-        void print();
+        void attack(Team *otherTeam) override;
+        void print() override;
     };
 }

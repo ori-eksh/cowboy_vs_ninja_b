@@ -61,7 +61,7 @@ namespace ariel
         {
             Cowboy *cowPtr = dynamic_cast<Cowboy *>(member); // its cowboy
 
-            if (cowPtr != nullptr && cowPtr->isAlive() == true)
+            if (cowPtr != nullptr && cowPtr->isAlive() == true && victim->isAlive() == true)
             {
                 if (cowPtr->getAmountOfBalls() > 0)
                 {
@@ -94,7 +94,7 @@ namespace ariel
         for (auto member : Members) // the attack of ninja
         {
             Ninja *Ninjaptr = dynamic_cast<Ninja *>(member); // its ninja
-            if (Ninjaptr != nullptr && Ninjaptr->isAlive() == true)
+            if (Ninjaptr != nullptr && Ninjaptr->isAlive() == true && victim->isAlive() == true)
             {
                 if (Ninjaptr->distance(victim) > 1)
                 {
