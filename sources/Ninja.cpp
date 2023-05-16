@@ -16,7 +16,7 @@ namespace ariel
         {
             throw runtime_error("No self harm");
         }
-        if ((this->getLocation().distance(target->getLocation())) < 1)
+        if ((this->getLocation().distance(target->getLocation())) <= 1)
         {
             target->hit(40);
         }
