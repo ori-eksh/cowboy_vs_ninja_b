@@ -62,6 +62,10 @@ namespace ariel
         {
             return played;
         }
+        void setLocation(Point &poi)
+        {
+            location = poi;
+        }
     };
 }
 //

@@ -52,11 +52,6 @@ namespace ariel
         void move(Character *target);
         std::string print() override;
         ~Ninja() override {}
-        void setLocation(Point poi)
-        {
-            this->getLocation().setX(poi.getX());
-            this->getLocation().setY(poi.getY());
-        }
     };
 
 }
