@@ -27,6 +27,7 @@ namespace ariel
             throw invalid_argument("you cant Sending negative value to hit()git");
         }
         hit_points = (hit_points - num);
+
         return;
     }
 

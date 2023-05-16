@@ -28,7 +28,7 @@ namespace ariel
             throw invalid_argument("you cant sending nullptr to the attack() method");
         }
 
-        if (otherTeam->stillAlive() <= 0) // if everyone in this team tead
+        if (otherTeam->stillAlive() <= 0 || stillAlive() <= 0) // if everyone in this team tead
         {
             return;
         }
@@ -50,7 +50,7 @@ namespace ariel
         Character *victim;
         for (auto member : otherTeam->Members) // choos victim
         {
-            if (chief->distance(member) < min_victim && member->isAlive() == true)
+            if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
             {
                 victim = member;
             }
@@ -60,7 +60,7 @@ namespace ariel
         {
             Cowboy *cowPtr = dynamic_cast<Cowboy *>(member); // its cowboy
 
-            if (cowPtr != nullptr)
+            if (cowPtr != nullptr && cowPtr->isAlive() == true)
             {
                 if (cowPtr->getAmountOfBalls() > 0)
                 {
@@ -73,7 +73,7 @@ namespace ariel
             }
 
             Ninja *Ninjaptr = dynamic_cast<Ninja *>(member); // its ninja
-            if (Ninjaptr != nullptr)
+            if (Ninjaptr != nullptr && Ninjaptr->isAlive() == true)
             {
                 if (Ninjaptr->distance(victim) > 1)
                 {
@@ -82,6 +82,22 @@ namespace ariel
                 else
                 {
                     Ninjaptr->slash(victim);
+                }
+            }
+
+            if (victim->isAlive() == false)
+            {
+                if (otherTeam->stillAlive() == 0)
+                {
+                    return;
+                }
+                for (auto member : otherTeam->Members) // choos new victim
+                {
+                    min_victim = 99999;
+                    if ((chief->distance(member) < min_victim) && (member->isAlive() == true))
+                    {
+                        // victim = member;
+                    }
                 }
             }
         }

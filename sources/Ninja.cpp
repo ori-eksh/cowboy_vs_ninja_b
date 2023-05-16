@@ -4,9 +4,13 @@ namespace ariel
 {
     void Ninja::slash(Character *target)
     {
-        if (target->isAlive() == false || this->isAlive() == false)
+        if (target->isAlive() == false)
         {
-            throw runtime_error("Dead characters cannot attack and characters cannot attack a dead enemy");
+            throw runtime_error("characters cannot attack a dead enemy");
+        }
+        if (this->isAlive() == false)
+        {
+            throw runtime_error("Dead characters cannot attack ");
         }
         if (this == target)
         {
