@@ -19,9 +19,9 @@ namespace ariel
         int speed;
 
     public:
-        Ninja(string name, Point const &location, int hpoints, int const speed) : Character(std::move(name), location, hpoints), speed(speed) {}
+        Ninja(string name, Point const &location, int hpoints, int const speed) : Character(std::move(name), location, hpoints, 'N'), speed(speed) {}
         Ninja(const Ninja &other) : Character(other), speed(other.speed) {}
-        Ninja() : Character("anonimic", Point(0, 0), 0), speed(0) {}
+        Ninja() : Character("anonimic", Point(0, 0), 0, 'N'), speed(0) {}
 
         // Copy assignment operator
         Ninja &operator=(const Ninja &other)

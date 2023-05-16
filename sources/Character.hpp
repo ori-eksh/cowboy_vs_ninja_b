@@ -11,9 +11,10 @@ namespace ariel
         std::string name;
         int hit_points;
         bool played;
+        char idp;
 
     public:
-        Character(std::string name, const Point &location, int hit_points) : location(location), name(std::move(name)), hit_points(hit_points), played(false) {}
+        Character(std::string name, const Point &location, int hit_points, char id) : location(location), name(std::move(name)), hit_points(hit_points), played(false), idp(id) {}
         Character(const Character &other) : location(other.location), name(other.name), hit_points(other.hit_points) {}
         Character(Character &&other) noexcept : location(std::move(other.location)), name(std::move(other.name)), hit_points(other.hit_points) {}
 
@@ -65,6 +66,10 @@ namespace ariel
         void setLocation(Point &poi)
         {
             location = poi;
+        }
+        char getIdp()
+        {
+            return idp;
         }
     };
 }

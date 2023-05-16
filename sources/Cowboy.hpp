@@ -12,7 +12,7 @@ namespace ariel
 
         int amountOfBalls;
 
-        Cowboy(std::string name, const Point &location) : Character(std::move(name), location, HUNDRED10), amountOfBalls(SIX) {}
+        Cowboy(std::string name, const Point &location) : Character(std::move(name), location, HUNDRED10, 'C'), amountOfBalls(SIX) {}
 
         Cowboy(const Cowboy &) = delete;
         Cowboy &operator=(const Cowboy &) = delete;
