@@ -11,13 +11,20 @@ namespace ariel
     class Team
     {
     private:
+        int participants;
         Character *chief;
         std::vector<Character *> Members;
 
     public:
         Team(Character *chief) : chief(chief)
         {
-            Members.push_back(chief);
+            if (chief->getIfPlayed() == true)
+            {
+                throw runtime_error("you cant Appointing the same captain to different teams");
+            }
+            participants = 1;
+            Members.emplace_back(chief);
+            chief->startPlay();
         }
 
         void add(Character *toAdd);
@@ -27,8 +34,6 @@ namespace ariel
 
         virtual ~Team()
         {
-            delete chief;
-            chief = nullptr;
             for (auto *member : Members)
             {
                 delete member;

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <cmath>
+#include <stdexcept>
 namespace ariel
 {
     class Point
@@ -39,11 +40,17 @@ namespace ariel
 
         double getX() const { return x; }
         double getY() const { return y; }
+        void setX(double x_val) { x = x_val; }
+        void setY(double y_val) { y = y_val; }
 
         std::string print();
 
         static Point moveTowards(const Point &from, const Point &target, double distance)
         {
+            if (distance < 0)
+            {
+                throw std::invalid_argument("distance cant be less then 0");
+            }
             double dist = target.distance(from);
 
             if (dist <= distance)

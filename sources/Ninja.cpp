@@ -4,7 +4,7 @@ namespace ariel
 {
     void Ninja::slash(Character *target)
     {
-        if (this->isAlive() == true && target->isAlive() == true)
+        if (this->isAlive() == true && target->isAlive() == true && (this->getLocation().distance(target->getLocation())) <= 1)
         {
             target->hit(40);
         }
@@ -13,7 +13,8 @@ namespace ariel
 
     void Ninja::move(Character *target)
     {
-        Point mooveTo = Point::moveTowards(this->getLocation(), target->getLocation(), speed);
+        Point moveTo = Point::moveTowards(this->getLocation(), target->getLocation(), speed);
+        this->setLocation(moveTo);
         return;
     }
 

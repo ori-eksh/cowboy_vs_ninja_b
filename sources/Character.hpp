@@ -10,9 +10,10 @@ namespace ariel
         Point location;
         std::string name;
         int hit_points;
+        bool played;
 
     public:
-        Character(std::string name, const Point &location, int hit_points) : location(location), name(std::move(name)), hit_points(hit_points) {}
+        Character(std::string name, const Point &location, int hit_points) : location(location), name(std::move(name)), hit_points(hit_points), played(false) {}
         Character(const Character &other) : location(other.location), name(other.name), hit_points(other.hit_points) {}
         Character(Character &&other) noexcept : location(std::move(other.location)), name(std::move(other.name)), hit_points(other.hit_points) {}
 
@@ -52,6 +53,15 @@ namespace ariel
         Point getLocation();
         virtual std::string print() = 0;
         virtual ~Character() {}
+        void startPlay()
+        {
+            this->played = true;
+        }
+
+        bool getIfPlayed()
+        {
+            return played;
+        }
     };
 }
 //

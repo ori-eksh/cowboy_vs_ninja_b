@@ -6,7 +6,7 @@ namespace ariel
 {
     void Cowboy::shoot(Character *target)
     {
-        if (target->isAlive() == true && this->isAlive() == true)
+        if (target->isAlive() == true && this->isAlive() == true && amountOfBalls > 0)
         {
             target->hit(10);
             amountOfBalls -= 1;
