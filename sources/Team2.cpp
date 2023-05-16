@@ -58,7 +58,7 @@ namespace ariel
             Ninja *Ninjaptr = dynamic_cast<Ninja *>(member); // its ninja
             if (Ninjaptr != nullptr && Ninjaptr->isAlive() == true)
             {
-                if (Ninjaptr->distance(victim) > 1)
+                if (Ninjaptr->distance(victim) >= 1)
                 {
                     Ninjaptr->move(victim);
                 }
