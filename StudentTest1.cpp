@@ -9,7 +9,6 @@
 #include "sources/Team2.hpp"
 #include <random>
 #include <chrono>
-#include <iostream>
 using namespace ariel;
 
 //<--------------------Helper Functions-------------------->
