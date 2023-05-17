@@ -30,7 +30,7 @@ namespace ariel
 
         if (otherTeam->stillAlive() <= 0 || stillAlive() <= 0) // if everyone in this team tead
         {
-            throw runtime_error("cant fight wit dead people");
+            throw runtime_error("cant fight with dead people");
         }
 
         if (chief->isAlive() == false) // if the chief is dead
@@ -132,7 +132,9 @@ namespace ariel
         for (auto member : Members)
         {
             if (member->isAlive() == true)
+            {
                 countAlive++;
+            }
         }
         return countAlive;
     }

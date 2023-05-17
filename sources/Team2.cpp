@@ -10,9 +10,9 @@ namespace ariel
             throw invalid_argument("you cant sending nullptr to the attack() method");
         }
 
-        if (otherTeam->stillAlive() == 0 || stillAlive() == 0) // if everyone in this team tead
+        if (otherTeam->stillAlive() <= 0 || stillAlive() <= 0) // if everyone in this team tead
         {
-            throw runtime_error("cant fight wit dead people");
+            throw runtime_error("cant fight with dead people");
         }
 
         if (this->getChief()->isAlive() == false) // if the chief is dead

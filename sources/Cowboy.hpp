@@ -7,7 +7,7 @@ namespace ariel
     class Cowboy : public Character
     {
     public:
-        static constexpr int HUNDRED10 = 100;
+        static constexpr int HUNDRED10 = 110;
         static constexpr int SIX = 6;
 
         int amountOfBalls;
