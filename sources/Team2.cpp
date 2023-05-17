@@ -10,7 +10,7 @@ namespace ariel
             throw invalid_argument("you cant sending nullptr to the attack() method");
         }
 
-        if (otherTeam->stillAlive() <= 0 || stillAlive() <= 0) // if everyone in this team tead
+        if (otherTeam->stillAlive() == 0 || stillAlive() == 0) // if everyone in this team tead
         {
             throw runtime_error("");
         }
@@ -18,9 +18,11 @@ namespace ariel
         if (this->getChief()->isAlive() == false) // if the chief is dead
         {
             double min_dis = 99999;
+            Character *firs_chief = this->getChief();
+
             for (auto member : getMembers())
             {
-                if (this->getChief()->distance(member) < min_dis && member->isAlive() == true)
+                if (firs_chief->distance(member) < min_dis && member->isAlive() == true)
                 {
                     this->setChief(member);
                     min_dis = this->getChief()->distance(member);

@@ -36,9 +36,10 @@ namespace ariel
         if (chief->isAlive() == false) // if the chief is dead
         {
             double min_dis = 999999;
+            Character *firs_chief = chief;
             for (auto member : Members)
             {
-                if (chief->distance(member) < min_dis && member->isAlive() == true)
+                if (firs_chief->distance(member) < min_dis && member->isAlive() == true)
                 {
                     chief = member;
                     min_dis = chief->distance(member);
