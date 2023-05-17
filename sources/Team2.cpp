@@ -12,7 +12,7 @@ namespace ariel
 
         if (otherTeam->stillAlive() == 0 || stillAlive() == 0) // if everyone in this team tead
         {
-            throw runtime_error("");
+            throw runtime_error("cant fight wit dead people");
         }
 
         if (this->getChief()->isAlive() == false) // if the chief is dead
