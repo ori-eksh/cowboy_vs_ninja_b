@@ -80,9 +80,10 @@ namespace ariel
                 {
                     return;
                 }
+                double min_victim2 = 999999;
+
                 for (auto member : otherTeam->Members) // choos new victim
                 {
-                    double min_victim2 = 999999;
                     if ((chief->distance(member) < min_victim2) && (member->isAlive() == true))
                     {
                         victim = member;
@@ -113,9 +114,10 @@ namespace ariel
                 {
                     return;
                 }
+                double min_victim3 = 999999;
+
                 for (auto member : otherTeam->Members) // choos new victim
                 {
-                    double min_victim3 = 999999;
                     if ((chief->distance(member) < min_victim3) && (member->isAlive() == true))
                     {
                         victim = member;
