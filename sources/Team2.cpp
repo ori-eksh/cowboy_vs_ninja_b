@@ -25,7 +25,7 @@ namespace ariel
                 if (firs_chief->distance(member) < min_dis && member->isAlive() == true)
                 {
                     this->setChief(member);
-                    min_dis = this->getChief()->distance(member);
+                    min_dis = firs_chief->distance(member);
                 }
             }
         }

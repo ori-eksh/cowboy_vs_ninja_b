@@ -42,7 +42,7 @@ namespace ariel
                 if (firs_chief->distance(member) < min_dis && member->isAlive() == true)
                 {
                     chief = member;
-                    min_dis = chief->distance(member);
+                    min_dis = firs_chief->distance(member);
                 }
             }
         }
